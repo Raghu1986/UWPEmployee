@@ -44,7 +44,7 @@
                     <RelativePanel Width="150" Height="250" Background="White"  >
 
                         <TextBlock Name="FirstNameTextblock" Text="{x:Bind FirstName}" FontSize="20" FontWeight="Bold" RelativePanel.AlignTopWithPanel="True"  />
-                        <Image Name="EmployeeImage" Source="{x:Bind EMedia}" Stretch="Fill" Width="150" Height="200" RelativePanel.Below="FirstNameTextblock" RelativePanel.AlignHorizontalCenterWithPanel="True"  />
+                        <Image Name="EmployeeImage" Source="{x:Bind EMedia}" Stretch="Fill" Width="150" Height="250" RelativePanel.Below="FirstNameTextblock" RelativePanel.AlignHorizontalCenterWithPanel="True"  />
                         <TextBlock Name="DepartmentNametextBlock" Text="{x:Bind  Department}" FontSize="20" Foreground="Black" FontWeight="ExtraBlack"  RelativePanel.AlignBottomWithPanel="True"  />
                         <Image Name="DepartmentNameImage" Source="{x:Bind DepartmentImage}" Width="30" Height="20" Stretch="Fill" RelativePanel.AlignRightWithPanel="True"  RelativePanel.AlignBottomWithPanel="True"  />
                         
