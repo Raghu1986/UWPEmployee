@@ -8,6 +8,57 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
+        <RelativePanel>
+            <Button Name="HamburgerButton" 
+                    RelativePanel.AlignLeftWithPanel="True" 
+                    Click="HamburgerButton_Click"
+                    FontFamily="Segoe MDL2 Assets" 
+                    FontSize="20"
+                    Height="45"
+                    Width="45"
+                    Content="&#xE700;"/>
+            <Button Name="BackButton" 
+                    RelativePanel.RightOf="HamburgerButton"
+                    Click="BackButton_Click"
+                    FontFamily="Segoe MDL2 Assets"
+                    FontSize="20"
+                    Height="45"
+                    Width="45"                    
+                    Content="&#xE0A6;"
+                    />
+            <!--<AutoSuggestBox Name="SearchAutoSuggestBox" 
+                            PlaceholderText="Search by name"
+                            QueryIcon="Find"
+                            Width="200"
+                            Margin="0,5,10,0"
+                            HorizontalAlignment="Right"
+                            TextChanged="SearchAutoSuggestBox_TextChanged"
+                            QuerySubmitted="SearchAutoSuggestBox_QuerySubmitted"
+                            RelativePanel.AlignRightWithPanel="True"
+                             />-->
+        </RelativePanel>
+
+        <SplitView Name="MySplitView"
+                   Grid.Row="1"
+                   DisplayMode="CompactOverlay"
+                   CompactPaneLength="1"
+                   OpenPaneLength="200" >
+            <SplitView.Pane>
+                <TextBlock Text="1" />
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Grid>
+                    
+                    <Frame Name="MyFrame" />
+                </Grid>
+        
+
+            </SplitView.Content>
+        </SplitView>
     </Grid>
 </Page>
