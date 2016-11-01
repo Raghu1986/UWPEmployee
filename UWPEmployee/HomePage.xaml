@@ -25,35 +25,46 @@
                             HorizontalAlignment="Right"
                             TextChanged="SearchAutoSuggestBox_TextChanged"
                             QuerySubmitted="SearchAutoSuggestBox_QuerySubmitted"
+                            SuggestionChosen="SearchAutoSuggestBox_SuggestionChosen"
                             
                              />
 
-        <ProgressRing Name="MyProgressRing"
+        <RelativePanel Grid.Row="1">
+
+
+
+
+            <GridView Name="EmployeGridView" ItemsSource="{x:Bind EmployeeCharacters}"  Margin="30,20,0,0" Background="Transparent"  >
+                <GridView.ItemTemplate>
+
+                    <DataTemplate x:DataType="data:RootObject" >
+                        <RelativePanel Width="150" Height="250" Background="WhiteSmoke"  >
+
+
+                            <Image Name="EmployeeImage" Source="{x:Bind EMedia}" Stretch="Fill" Width="150" Height="250"  RelativePanel.AlignHorizontalCenterWithPanel="True"  />
+                            <TextBlock Name="FirstNameTextblock" Text="{x:Bind FirstName}" FontSize="20" FontWeight="Medium" Foreground="White"  RelativePanel.AlignTopWith="EmployeeImage" RelativePanel.AlignTopWithPanel="True"  />
+                            <TextBlock Name="DepartmentNametextBlock" Text="{x:Bind  Department}" FontSize="20" Foreground="White" FontWeight="Bold"  RelativePanel.AlignBottomWithPanel="True"  />
+                            <Image Name="DepartmentNameImage" Source="{x:Bind DepartmentImage}" Width="30" Height="20" Stretch="Fill" RelativePanel.AlignRightWithPanel="True"  RelativePanel.AlignBottomWithPanel="True"  />
+
+                        </RelativePanel>
+                    </DataTemplate>
+
+                </GridView.ItemTemplate>
+            </GridView>
+
+            <ProgressRing Name="MyProgressRing"
                       Width="50"
                       Height="50"
                       Foreground="Red"
                       Grid.Row="1"
-                      VerticalAlignment="Center"
-                      HorizontalAlignment="Center" />
+                      RelativePanel.AlignTopWith="EmployeGridView"
+                      RelativePanel.AlignVerticalCenterWithPanel="True"
+                      RelativePanel.AlignHorizontalCenterWithPanel="True"                          
+                          />
 
 
-        <GridView Name="EmployeGridView" ItemsSource="{x:Bind EmployeeCharacters}" Grid.Row="1" Margin="30,20,0,0" Background="Transparent" >
-            <GridView.ItemTemplate>
 
-                <DataTemplate x:DataType="data:RootObject" >
-                    <RelativePanel Width="150" Height="250" Background="WhiteSmoke"  >
-
-                        
-                        <Image Name="EmployeeImage" Source="{x:Bind EMedia}" Stretch="Fill" Width="150" Height="250"  RelativePanel.AlignHorizontalCenterWithPanel="True"  />
-                        <TextBlock Name="FirstNameTextblock" Text="{x:Bind FirstName}" FontSize="20" FontWeight="Medium" Foreground="White"  RelativePanel.AlignTopWith="EmployeeImage" RelativePanel.AlignTopWithPanel="True"  />
-                        <TextBlock Name="DepartmentNametextBlock" Text="{x:Bind  Department}" FontSize="20" Foreground="White" FontWeight="Bold"  RelativePanel.AlignBottomWithPanel="True"  />
-                        <Image Name="DepartmentNameImage" Source="{x:Bind DepartmentImage}" Width="30" Height="20" Stretch="Fill" RelativePanel.AlignRightWithPanel="True"  RelativePanel.AlignBottomWithPanel="True"  />
-                        
-                    </RelativePanel>
-                </DataTemplate>
-
-            </GridView.ItemTemplate>
-        </GridView>
+        </RelativePanel>
 
     </Grid>
 </Page>
