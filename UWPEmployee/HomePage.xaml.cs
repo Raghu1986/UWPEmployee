@@ -41,8 +41,7 @@ namespace UWPEmployee
 
         protected   override void OnNavigatedTo(NavigationEventArgs e)
         {
-
-
+            
             getAll();
 
         }
@@ -81,5 +80,6 @@ namespace UWPEmployee
             
 
         }
+
     }
 }

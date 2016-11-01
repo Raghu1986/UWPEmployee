@@ -37,7 +37,7 @@
                       HorizontalAlignment="Center" />
 
 
-        <GridView Name="EmployeGridView" ItemsSource="{x:Bind EmployeeCharacters}" Grid.Row="1" Margin="30,20,0,0" Background="GhostWhite" >
+        <GridView Name="EmployeGridView" ItemsSource="{x:Bind EmployeeCharacters}" Grid.Row="1" Margin="30,20,0,0" Background="Transparent" >
             <GridView.ItemTemplate>
 
                 <DataTemplate x:DataType="data:RootObject" >
