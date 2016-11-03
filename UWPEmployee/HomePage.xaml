@@ -31,9 +31,6 @@
 
         <RelativePanel Grid.Row="1">
 
-
-
-
             <GridView Name="EmployeGridView" ItemsSource="{x:Bind EmployeeCharacters}"  Margin="30,20,0,0" Background="Transparent"  >
                 <GridView.ItemTemplate>
 
@@ -61,8 +58,6 @@
                       RelativePanel.AlignVerticalCenterWithPanel="True"
                       RelativePanel.AlignHorizontalCenterWithPanel="True"                          
                           />
-
-
 
         </RelativePanel>
 

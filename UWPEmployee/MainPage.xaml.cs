@@ -40,7 +40,7 @@ namespace UWPEmployee
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-           
+            MyFrame.Navigate(typeof(MediaPlayer));
         }
 
         private void SearchAutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
