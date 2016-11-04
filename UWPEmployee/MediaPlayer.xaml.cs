@@ -12,6 +12,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.Storage.Pickers;
+using Windows.Storage;
+using System.Reflection;
+using Windows.Media.Core;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -29,8 +33,16 @@ namespace UWPEmployee
 
         private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
-            MyMediaPlayer.Source = new Uri("ms-appx:///assets/AudioVideoPlay_high.mp4", UriKind.Absolute);
-            MyMediaPlayer.Play();
+
+            System.Uri manifestUri = new Uri("http://amssamples.streaming.mediaservices.windows.net/49b57c87-f5f3-48b3-ba22-c55cfdffa9cb/Sintel.ism/manifest(format=m3u8-aapl)");
+            
+            MyMediaPlayer.Source = MediaSource.CreateFromUri(manifestUri);
+            MyMediaPlayer.MediaPlayer.Play();
+
+         
         }
+               
+
+
     }
 }

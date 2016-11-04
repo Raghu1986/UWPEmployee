@@ -8,12 +8,13 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <MediaElement Name="MyMediaPlayer"
-                      Height="720"
-                      Width="1024"
-                      
-                      />
-            
+        <MediaPlayerElement Name="MyMediaPlayer"
+                            HorizontalAlignment="Stretch"
+                            AreTransportControlsEnabled="True"
+                            
+                            />
+
+
         <Button Name="PlayButton"
                 Content="Play"
                 Click="PlayButton_Click"
