@@ -92,5 +92,10 @@ namespace UWPEmployee
             MyProgressRing.IsActive = false;
 
         }
+
+        private void EmployeGridView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //Frame.Navigate(typeof(MediaPlayer));
+        }
     }
 }

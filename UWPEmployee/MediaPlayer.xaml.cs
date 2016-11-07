@@ -34,15 +34,11 @@ namespace UWPEmployee
         private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
 
-            System.Uri manifestUri = new Uri("http://amssamples.streaming.mediaservices.windows.net/49b57c87-f5f3-48b3-ba22-c55cfdffa9cb/Sintel.ism/manifest(format=m3u8-aapl)");
-            
+            System.Uri manifestUri = new Uri("http://192.168.1.62/movie2.mp4");
             MyMediaPlayer.Source = MediaSource.CreateFromUri(manifestUri);
             MyMediaPlayer.MediaPlayer.Play();
-
-         
+            
         }
-               
-
 
     }
 }

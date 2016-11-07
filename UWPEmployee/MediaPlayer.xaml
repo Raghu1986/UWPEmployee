@@ -11,8 +11,10 @@
         <MediaPlayerElement Name="MyMediaPlayer"
                             HorizontalAlignment="Stretch"
                             AreTransportControlsEnabled="True"
-                            
+
                             />
+
+   
 
 
         <Button Name="PlayButton"
