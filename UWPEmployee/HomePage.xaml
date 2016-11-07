@@ -31,12 +31,11 @@
 
         <RelativePanel Grid.Row="1">
 
-            <GridView Name="EmployeGridView" ItemsSource="{x:Bind EmployeeCharacters}"  Margin="30,20,0,0" Background="Transparent" ItemClick="EmployeGridView_ItemClick"  >
+            <GridView Name="EmployeGridView" ItemsSource="{x:Bind EmployeeCharacters}"  Margin="30,20,0,0"  Background="Transparent" IsItemClickEnabled="True"  ItemClick="EmployeGridView_ItemClick"  >
                 <GridView.ItemTemplate>
 
                     <DataTemplate x:DataType="data:RootObject" >
-                        <RelativePanel Width="150" Height="250" Background="WhiteSmoke"  >
-
+                        <RelativePanel Width="150" Height="250" Background="WhiteSmoke" >
 
                             <Image Name="EmployeeImage" Source="{x:Bind EMedia}" Stretch="Fill" Width="150" Height="250"  RelativePanel.AlignHorizontalCenterWithPanel="True"  />
                             <TextBlock Name="FirstNameTextblock" Text="{x:Bind FirstName}" FontSize="20" FontWeight="Medium" Foreground="White"  RelativePanel.AlignTopWith="EmployeeImage" RelativePanel.AlignTopWithPanel="True"  />

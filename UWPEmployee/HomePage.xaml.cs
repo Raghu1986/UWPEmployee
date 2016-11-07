@@ -95,7 +95,9 @@ namespace UWPEmployee
 
         private void EmployeGridView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //Frame.Navigate(typeof(MediaPlayer));
+           var rootobject= (RootObject)e.ClickedItem;
+
+            Frame.Navigate(typeof(MediaPlayer),rootobject.Department);
         }
     }
 }

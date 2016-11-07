@@ -34,11 +34,21 @@ namespace UWPEmployee
         private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
 
-            System.Uri manifestUri = new Uri("http://192.168.1.62/movie2.mp4");
-            MyMediaPlayer.Source = MediaSource.CreateFromUri(manifestUri);
-            MyMediaPlayer.MediaPlayer.Play();
+            
             
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+
+            var value = (string)e.Parameter;
+            var Strvalue = String.Format("http://192.168.1.62/{0}.mp4",value);
+            System.Uri manifestUri = new Uri(Strvalue);
+            MyMediaPlayer.Source = MediaSource.CreateFromUri(manifestUri);
+            MyMediaPlayer.MediaPlayer.Play();
+
+        }
+
 
     }
 }

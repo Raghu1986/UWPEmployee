@@ -54,7 +54,6 @@
             </SplitView.Pane>
             <SplitView.Content>
                 <Grid>
-                    
                     <Frame Name="MyFrame" />
                 </Grid>
         

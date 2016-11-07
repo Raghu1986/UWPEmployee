@@ -17,10 +17,6 @@
    
 
 
-        <Button Name="PlayButton"
-                Content="Play"
-                Click="PlayButton_Click"
-                />
 
 
     </Grid>
