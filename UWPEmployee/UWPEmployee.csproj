@@ -104,6 +104,8 @@
     <Compile Include="MediaPlayer.xaml.cs">
       <DependentUpon>MediaPlayer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\CourseManager.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AudioVideoPlay_high.mp4" />
+    <Content Include="Assets\Logos\Backbon-js.png" />
     <Content Include="Assets\Logos\Java.png" />
     <Content Include="Assets\Logos\Dotnet.png" />
     <Content Include="Assets\Logos\Tester.png" />

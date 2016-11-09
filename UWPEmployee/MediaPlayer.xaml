@@ -5,19 +5,48 @@
     xmlns:local="using:UWPEmployee"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:UWPEmployee.Models"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <MediaPlayerElement Name="MyMediaPlayer"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <GridView Name="CourseGridView" Grid.Row="1" ItemsSource="{x:Bind Courses}"  Margin="30,20,0,0"  Background="Transparent" IsItemClickEnabled="True"   >
+            <GridView.ItemTemplate>
+
+                <DataTemplate x:DataType="data:Course" >
+                    <StackPanel  >
+                        <TextBlock Text="{x:Bind CourseType}" Foreground="Black" FontSize="8" Margin="05,0,0,0" />
+                        <Ellipse Width="60" Height="60" >
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="{x:Bind LogoUri}" />
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        
+                    </StackPanel>
+                </DataTemplate>
+
+            </GridView.ItemTemplate>
+        </GridView>
+
+        <MediaPlayerElement Grid.Row="2" Name="MyMediaPlayer"
                             HorizontalAlignment="Stretch"
                             AreTransportControlsEnabled="True"
-
                             />
 
-   
-
-
-
+        <ProgressRing Name="MyCourseProgressRing"
+                      Width="50"
+                      Height="50"
+                      Foreground="Red"
+                      Grid.RowSpan="3"
+                      RelativePanel.AlignTopWith="EmployeGridView"
+                      RelativePanel.AlignVerticalCenterWithPanel="True"
+                      RelativePanel.AlignHorizontalCenterWithPanel="True"                          
+                          />
 
     </Grid>
 </Page>
