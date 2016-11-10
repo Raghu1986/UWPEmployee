@@ -11,60 +11,64 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <GridView Name="CourseGridView" Grid.Row="0" ItemsSource="{x:Bind Courses}"  Margin="30,20,0,0"  Background="Transparent" IsItemClickEnabled="True"   >
-            <GridView.ItemTemplate>
+        <ScrollViewer >
+            <GridView Name="CourseGridView" 
+                  Grid.Row="0"
+                  ItemsSource="{x:Bind Courses}"
+                  Margin="30,20,0,0"
+                  Background="Transparent"
+                  IsItemClickEnabled="True"
+                  ItemClick="CourseGridView_ItemClick">
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="data:Course" >
+                        <StackPanel Margin="10,10,10,10"  >
+                            <TextBlock Text="{x:Bind CourseType}" Foreground="Black" FontWeight="SemiBold" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                            <Ellipse Width="80" Height="80" >
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{x:Bind LogoUri}" Stretch="Uniform" />
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </StackPanel>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+        </ScrollViewer>
 
-                <DataTemplate x:DataType="data:Course" >
-                    <StackPanel Margin="10,10,10,10"  >
-                        <TextBlock Text="{x:Bind CourseType}" Foreground="Black" FontWeight="SemiBold" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" />
-                        <Ellipse Width="80" Height="80" >
-                            <Ellipse.Fill>
-                                <ImageBrush ImageSource="{x:Bind LogoUri}" Stretch="Uniform" />
-                            </Ellipse.Fill>
-                        </Ellipse>
-                        
-                    </StackPanel>
-                </DataTemplate>
+        
+        <Grid Grid.Row="1" Background="Black">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-            </GridView.ItemTemplate>
-        </GridView>
+            <ScrollViewer>
+                <ListView Name="MediaListView" Grid.Row="1" 
+                  Grid.Column="0"
+                  ItemsSource="{x:Bind Medias}"
+                  Margin="30,20,0,0"
+                  Background="Transparent"
+                  IsItemClickEnabled="True"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"      
+                  ItemClick="MediaListView_ItemClick"   >
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="data:Media" >
+                            <StackPanel Margin="10,10,10,10" >
+                                <TextBlock Text="{x:Bind MediaUri}" TextWrapping="Wrap" FontSize="12" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollViewer>
 
-        <ListView Name="MediaGridView" Grid.Row="1" ItemsSource="{x:Bind Medias}"  Margin="30,20,0,0"  Background="Transparent" IsItemClickEnabled="True" ItemClick="MediaGridView_ItemClick"   >
-            <ListView.ItemTemplate>
-
-                <DataTemplate x:DataType="data:Media" >
-                    <StackPanel Margin="10,10,10,10" >
-                        <!--<MediaPlayerElement Source="{x:Bind MediaUri}"  />-->
-                        <TextBlock Text="{x:Bind Category}" TextWrapping="Wrap" />
-                       
-                    </StackPanel>
-                </DataTemplate>
-
-            </ListView.ItemTemplate>
-        </ListView>
-
-        <MediaPlayerElement Grid.Row="2" 
+            <MediaPlayerElement 
                             Name="MyMediaPlayer"
-                            Width="100"
-                            Height="100"
-                            HorizontalAlignment="Right"
+                            Grid.Column="1"    
                             AreTransportControlsEnabled="True"
-                            
                             />
-
-        <ProgressRing Name="MyCourseProgressRing"
-                      Width="50"
-                      Height="50"
-                      Foreground="Red"
-                      Grid.RowSpan="3"
-                      RelativePanel.AlignTopWith="EmployeGridView"
-                      RelativePanel.AlignVerticalCenterWithPanel="True"
-                      RelativePanel.AlignHorizontalCenterWithPanel="True"                          
-                          />
-
+        </Grid>
     </Grid>
 </Page>

@@ -32,6 +32,8 @@ namespace UWPEmployee
         public ObservableCollection<Course> Courses { get; set; }
 
         public ObservableCollection<Media> Medias { get; set; }
+
+        public string CourseName;
         public MediaPlayer()
         {
             this.InitializeComponent();
@@ -53,31 +55,37 @@ namespace UWPEmployee
 
         }
 
-        private void PlayButton_Click(object sender, RoutedEventArgs e)
-        {
-
-            
-            
-        }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            MyCourseProgressRing.IsActive = true;
-            MyCourseProgressRing.Visibility = Visibility.Visible;
+            //MyCourseProgressRing.IsActive = true;
+            //MyCourseProgressRing.Visibility = Visibility.Visible;
             getAllCourse();
-            getAllMedia();
-            MyCourseProgressRing.Visibility = Visibility.Collapsed;
-            MyCourseProgressRing.IsActive = false;
+            //getAllMedia();
+            //MyCourseProgressRing.Visibility = Visibility.Collapsed;
+            //MyCourseProgressRing.IsActive = false;
+            MyMediaPlayer.Visibility = Visibility.Collapsed;
 
         }
 
-        private void MediaGridView_ItemClick(object sender, ItemClickEventArgs e)
+        private async void CourseGridView_ItemClick(object sender, ItemClickEventArgs e)
         {
+            MyMediaPlayer.Visibility = Visibility.Collapsed;
+            var value = (Course)e.ClickedItem;
+            CourseName = value.CourseType;
+            await MediaManager.GetCatMediaAsnc(Medias, CourseName);
+            MyMediaPlayer.Visibility = Visibility.Collapsed;
+
+        }
+        private void MediaListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+           // MyMediaPlayer.Visibility = Visibility.Collapsed;
             var value = (Media)e.ClickedItem;
-            var Strvalue = String.Format("{0}", value.MediaUri);
+            var Strvalue = String.Format(" http://localhost:87/{0}/{1}", CourseName, value.MediaUri);
             System.Uri manifestUri = new Uri(Strvalue);
             MyMediaPlayer.Source = MediaSource.CreateFromUri(manifestUri);
             MyMediaPlayer.MediaPlayer.Play();
+            MyMediaPlayer.Visibility = Visibility.Visible;
         }
     }
 }

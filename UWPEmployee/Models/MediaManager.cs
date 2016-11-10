@@ -30,5 +30,15 @@ namespace UWPEmployee.Models
             Medias.Clear();
             allMedias.ForEach(p => Medias.Add(p));
         }
+
+        public async static Task GetCatMediaAsnc(ObservableCollection<Media> Medias, string Category)
+        {
+
+            var jsonString = await CallMediaAsync(url);
+            var allMedias = JsonConvert.DeserializeObject<List<Media>>(jsonString);
+            var filteredMedias = allMedias.Where(p => p.Category == Category).ToList();
+            Medias.Clear();
+            filteredMedias.ForEach(p => Medias.Add(p));
+        }
     }
 }
