@@ -38,7 +38,7 @@
         </ScrollViewer>
 
         
-        <Grid Grid.Row="1" Background="Black">
+        <Grid Grid.Row="1" BorderBrush="HotPink" BorderThickness="3" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
