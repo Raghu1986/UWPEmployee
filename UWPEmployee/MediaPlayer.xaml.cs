@@ -30,16 +30,26 @@ namespace UWPEmployee
     public sealed partial class MediaPlayer : Page
     {
         public ObservableCollection<Course> Courses { get; set; }
+
+        public ObservableCollection<Media> Medias { get; set; }
         public MediaPlayer()
         {
             this.InitializeComponent();
             Courses = new ObservableCollection<Course>();
+            Medias = new ObservableCollection<Media>();
         }
 
         private async void getAllCourse()
         {
 
             await CourseManager.GetAllCourseAsnc(Courses);
+
+        }
+
+        private async void getAllMedia()
+        {
+
+            await MediaManager.GetAllMediaAsnc(Medias);
 
         }
 
@@ -55,17 +65,19 @@ namespace UWPEmployee
             MyCourseProgressRing.IsActive = true;
             MyCourseProgressRing.Visibility = Visibility.Visible;
             getAllCourse();
+            getAllMedia();
             MyCourseProgressRing.Visibility = Visibility.Collapsed;
             MyCourseProgressRing.IsActive = false;
 
-            //var value = (string)e.Parameter;
-            //var Strvalue = String.Format("http://localhost:87/{0}.mp4", value);
-            //System.Uri manifestUri = new Uri(Strvalue);
-            //MyMediaPlayer.Source = MediaSource.CreateFromUri(manifestUri);
-            //MyMediaPlayer.MediaPlayer.Play();
-
         }
 
-
+        private void MediaGridView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var value = (Media)e.ClickedItem;
+            var Strvalue = String.Format("{0}", value.MediaUri);
+            System.Uri manifestUri = new Uri(Strvalue);
+            MyMediaPlayer.Source = MediaSource.CreateFromUri(manifestUri);
+            MyMediaPlayer.MediaPlayer.Play();
+        }
     }
 }

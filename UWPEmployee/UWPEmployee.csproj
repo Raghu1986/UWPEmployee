@@ -108,6 +108,8 @@
     <Compile Include="Models\CourseManager.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeManager.cs" />
+    <Compile Include="Models\Media.cs" />
+    <Compile Include="Models\MediaManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
