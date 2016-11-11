@@ -11,6 +11,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -25,28 +26,46 @@
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="data:Course" >
                         <StackPanel Margin="10,10,10,10"  >
-                            <TextBlock Text="{x:Bind CourseType}" Foreground="Black" FontWeight="SemiBold" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" />
-                            <Ellipse Width="80" Height="80" >
+                            
+                            <Ellipse Width="40" Height="40" >
                                 <Ellipse.Fill>
-                                    <ImageBrush ImageSource="{x:Bind LogoUri}" Stretch="Uniform" />
+                                    <ImageBrush ImageSource="{x:Bind LogoUri}" Stretch="UniformToFill"  />
                                 </Ellipse.Fill>
                             </Ellipse>
+                            <TextBlock Text="{x:Bind CourseType}" Foreground="Black" FontWeight="Normal" FontSize="12" TextWrapping="WrapWholeWords" HorizontalAlignment="Center" VerticalAlignment="Top" />
                         </StackPanel>
                     </DataTemplate>
                 </GridView.ItemTemplate>
             </GridView>
         </ScrollViewer>
 
-        
-        <Grid Grid.Row="1" BorderBrush="HotPink" BorderThickness="3" >
+
+        <!--<Grid Name="GridMedialist" Grid.Row="1" BorderBrush="HotPink" BorderThickness="3" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions>-->
 
-            <ScrollViewer>
-                <ListView Name="MediaListView" Grid.Row="1" 
-                  Grid.Column="0"
+        <Button Name="VideoButton" 
+                Grid.Row="1"
+                Click="HamburgerButton_Click"
+                FontFamily="Segoe MDL2 Assets" 
+                FontSize="20"
+                Background="LightGray"
+                Height="35"
+                Width="35"
+                Content="&#xE89F;"/>
+
+        <SplitView Name="MediaListSplitView"
+                   Grid.Row="2"
+                   DisplayMode="CompactInline"
+                   IsPaneOpen="True"
+                   CompactPaneLength="35"
+                   OpenPaneLength="320"
+                   >
+            <SplitView.Pane>
+                <ScrollViewer>
+                    <ListView Name="MediaListView" Grid.Row="1" 
                   ItemsSource="{x:Bind Medias}"
                   Margin="30,20,0,0"
                   Background="Transparent"
@@ -54,21 +73,27 @@
                   HorizontalAlignment="Left"
                   VerticalAlignment="Top"      
                   ItemClick="MediaListView_ItemClick"   >
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="data:Media" >
-                            <StackPanel Margin="10,10,10,10" >
-                                <TextBlock Text="{x:Bind MediaUri}" TextWrapping="Wrap" FontSize="12" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </ScrollViewer>
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="data:Media" >
+                                <StackPanel Margin="10,10,10,10" >
+                                    <TextBlock Text="{x:Bind MediaUri}" TextWrapping="Wrap" FontSize="12" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollViewer>
 
-            <MediaPlayerElement 
+            </SplitView.Pane>
+
+            <SplitView.Content>
+                <MediaPlayerElement 
                             Name="MyMediaPlayer"
                             Grid.Column="1"    
                             AreTransportControlsEnabled="True"
                             />
-        </Grid>
+            </SplitView.Content>
+        </SplitView>
+
+
     </Grid>
 </Page>

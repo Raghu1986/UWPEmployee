@@ -64,28 +64,40 @@ namespace UWPEmployee
             //getAllMedia();
             //MyCourseProgressRing.Visibility = Visibility.Collapsed;
             //MyCourseProgressRing.IsActive = false;
+            MediaListSplitView.Visibility = Visibility.Collapsed;
+            VideoButton.Visibility = Visibility.Collapsed;
             MyMediaPlayer.Visibility = Visibility.Collapsed;
+
 
         }
 
         private async void CourseGridView_ItemClick(object sender, ItemClickEventArgs e)
         {
+
             MyMediaPlayer.Visibility = Visibility.Collapsed;
             var value = (Course)e.ClickedItem;
             CourseName = value.CourseType;
             await MediaManager.GetCatMediaAsnc(Medias, CourseName);
-            MyMediaPlayer.Visibility = Visibility.Collapsed;
+            MediaListSplitView.Visibility = Visibility.Visible;
+            VideoButton.Visibility = Visibility.Visible;
+            MediaListSplitView.IsPaneOpen = true;
 
         }
         private void MediaListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-           // MyMediaPlayer.Visibility = Visibility.Collapsed;
+            MyMediaPlayer.Visibility = Visibility.Collapsed;
             var value = (Media)e.ClickedItem;
             var Strvalue = String.Format(" http://localhost:87/{0}/{1}", CourseName, value.MediaUri);
             System.Uri manifestUri = new Uri(Strvalue);
             MyMediaPlayer.Source = MediaSource.CreateFromUri(manifestUri);
             MyMediaPlayer.MediaPlayer.Play();
             MyMediaPlayer.Visibility = Visibility.Visible;
+            MediaListSplitView.IsPaneOpen = !MediaListSplitView.IsPaneOpen;
+        }
+
+        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
+        {
+            MediaListSplitView.IsPaneOpen = !MediaListSplitView.IsPaneOpen;
         }
     }
 }
