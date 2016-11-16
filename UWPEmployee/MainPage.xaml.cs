@@ -28,6 +28,7 @@ namespace UWPEmployee
         public MainPage()
         {
             this.InitializeComponent();
+            BackButton.Visibility = Visibility.Collapsed;
             MyFrame.Navigate(typeof(HomePage));
 
         }
@@ -40,7 +41,10 @@ namespace UWPEmployee
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            MyFrame.Navigate(typeof(HomePage));
+            if(MyFrame.CanGoBack)
+            {
+                MyFrame.GoBack();
+            }
         }
 
         private void SearchAutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
@@ -58,5 +62,19 @@ namespace UWPEmployee
 
         }
 
+        private void HamburgerListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(EmploeeListItem.IsSelected)
+            {
+                BackButton.Visibility = Visibility.Collapsed;
+                MyFrame.Navigate(typeof(HomePage));
+            }
+            else if(StudyVideosListItem.IsSelected)
+            {
+                BackButton.Visibility = Visibility.Visible;
+                MyFrame.Navigate(typeof(MediaPlayer));
+            }
+            MySplitView.IsPaneOpen =false;
+        }
     }
 }

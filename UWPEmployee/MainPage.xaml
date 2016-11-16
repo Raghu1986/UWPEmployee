@@ -13,7 +13,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <RelativePanel>
+        <RelativePanel >
             <Button Name="HamburgerButton" 
                     RelativePanel.AlignLeftWithPanel="True" 
                     Click="HamburgerButton_Click"
@@ -21,7 +21,9 @@
                     FontSize="20"
                     Height="45"
                     Width="45"
-                    Content="&#xE700;"/>
+                    Content="&#xE700;"
+                    Background="Black"
+                    Foreground="white"/>
             <Button Name="BackButton" 
                     RelativePanel.RightOf="HamburgerButton"
                     Click="BackButton_Click"
@@ -30,6 +32,8 @@
                     Height="45"
                     Width="45"                    
                     Content="&#xE0A6;"
+                    Background="Black"
+                    Foreground="White"
                     />
             <!--<AutoSuggestBox Name="SearchAutoSuggestBox" 
                             PlaceholderText="Search by name"
@@ -47,10 +51,26 @@
         <SplitView Name="MySplitView"
                    Grid.Row="1"
                    DisplayMode="CompactOverlay"
-                   CompactPaneLength="1"
-                   OpenPaneLength="200" >
+                   CompactPaneLength="45"
+                   OpenPaneLength="200"
+                   Foreground="White"
+                   >
             <SplitView.Pane>
-                <TextBlock Text="1" />
+                <ListBox Name="HamburgerListBox" SelectionMode="Single" SelectionChanged="HamburgerListBox_SelectionChanged" Background="Black" Foreground="White" >
+                    <ListBoxItem Name="EmploeeListItem">
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock Text="&#xE13D;" FontFamily="Segoe MDL2 Assets" FontSize="20" VerticalAlignment="Top" Margin="6,12,0,0" Foreground="White" />
+                            <TextBlock Text="Employee" FontSize="20" FontWeight="Light" VerticalAlignment="Top" Margin="10,08,0,0" Foreground="White" />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="StudyVideosListItem">
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock Text="&#xE116;" FontFamily="Segoe MDL2 Assets" FontSize="20" VerticalAlignment="Top" Margin="6,12,0,0" Foreground="White" />
+                            <TextBlock Text="Study videos" FontSize="20" FontWeight="Light" VerticalAlignment="Top" Margin="10,08,0,0" Foreground="White" />
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
+
             </SplitView.Pane>
             <SplitView.Content>
                 <Grid>
