@@ -44,7 +44,9 @@ namespace UWPEmployee
             if(MyFrame.CanGoBack)
             {
                 MyFrame.GoBack();
+                BackButton.Visibility = Visibility.Collapsed;
             }
+            
         }
 
         private void SearchAutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)

@@ -18,7 +18,7 @@
                     RelativePanel.AlignLeftWithPanel="True" 
                     Click="HamburgerButton_Click"
                     FontFamily="Segoe MDL2 Assets" 
-                    FontSize="20"
+                    FontSize="18"
                     Height="45"
                     Width="45"
                     Content="&#xE700;"
@@ -28,7 +28,7 @@
                     RelativePanel.RightOf="HamburgerButton"
                     Click="BackButton_Click"
                     FontFamily="Segoe MDL2 Assets"
-                    FontSize="20"
+                    FontSize="18"
                     Height="45"
                     Width="45"                    
                     Content="&#xE0A6;"
@@ -59,14 +59,14 @@
                 <ListBox Name="HamburgerListBox" SelectionMode="Single" SelectionChanged="HamburgerListBox_SelectionChanged" Background="Black" Foreground="White" >
                     <ListBoxItem Name="EmploeeListItem">
                         <StackPanel Orientation="Horizontal" >
-                            <TextBlock Text="&#xE13D;" FontFamily="Segoe MDL2 Assets" FontSize="20" VerticalAlignment="Top" Margin="6,12,0,0" Foreground="White" />
-                            <TextBlock Text="Employee" FontSize="20" FontWeight="Light" VerticalAlignment="Top" Margin="10,08,0,0" Foreground="White" />
+                            <TextBlock Text="&#xE13D;" FontFamily="Segoe MDL2 Assets" FontSize="16" VerticalAlignment="Top" Margin="6,5,0,0" Foreground="White" />
+                            <TextBlock Text="Employee" FontSize="16" FontWeight="Light" VerticalAlignment="Top" Margin="20,2,0,0" Foreground="White" />
                         </StackPanel>
                     </ListBoxItem>
-                    <ListBoxItem Name="StudyVideosListItem">
-                        <StackPanel Orientation="Horizontal" >
-                            <TextBlock Text="&#xE116;" FontFamily="Segoe MDL2 Assets" FontSize="20" VerticalAlignment="Top" Margin="6,12,0,0" Foreground="White" />
-                            <TextBlock Text="Study videos" FontSize="20" FontWeight="Light" VerticalAlignment="Top" Margin="10,08,0,0" Foreground="White" />
+                    <ListBoxItem Name="StudyVideosListItem" >
+                        <StackPanel Orientation="Horizontal"  >
+                            <TextBlock Text="&#xE116;" FontFamily="Segoe MDL2 Assets" FontSize="16" VerticalAlignment="Top" Margin="6,5,0,0" Foreground="White" />
+                            <TextBlock Text="Study videos" FontSize="16" FontWeight="Light" VerticalAlignment="Top" Margin="20,2,0,0" Foreground="White" />
                         </StackPanel>
                     </ListBoxItem>
                 </ListBox>
