@@ -26,7 +26,7 @@
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="data:Course" >
                         <StackPanel Margin="10,10,10,10"  >
-                            
+
                             <Ellipse Width="40" Height="40" >
                                 <Ellipse.Fill>
                                     <ImageBrush ImageSource="{x:Bind LogoUri}" Stretch="UniformToFill"  />
@@ -56,6 +56,8 @@
                 Width="35"
                 Content="&#xE89F;"/>
 
+
+
         <SplitView Name="MediaListSplitView"
                    Grid.Row="2"
                    DisplayMode="CompactInline"
@@ -63,7 +65,7 @@
                    CompactPaneLength="35"
                    OpenPaneLength="320"
                    >
-            <SplitView.Pane>
+            <SplitView.Pane >
                 <ScrollViewer>
                     <ListView Name="MediaListView" Grid.Row="1" 
                   ItemsSource="{x:Bind Medias}"
@@ -88,12 +90,9 @@
             <SplitView.Content>
                 <MediaPlayerElement 
                             Name="MyMediaPlayer"
-                            Grid.Column="1"    
                             AreTransportControlsEnabled="True"
                             />
             </SplitView.Content>
         </SplitView>
-
-
     </Grid>
 </Page>

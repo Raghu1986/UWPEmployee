@@ -44,7 +44,12 @@ namespace UWPEmployee
             if(MyFrame.CanGoBack)
             {
                 MyFrame.GoBack();
-                BackButton.Visibility = Visibility.Collapsed;
+                if (StudyVideosListItem.IsSelected)
+                {
+                    EmploeeListItem.IsSelected = true;
+                }
+
+                    BackButton.Visibility = Visibility.Collapsed;
             }
             
         }
