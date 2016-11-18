@@ -56,6 +56,14 @@
                 Width="35"
                 Content="&#xE89F;"/>
 
+        <ProgressRing Name="MediaPlayerProgress"
+                      Width="50" 
+                      Height="50" 
+                      Foreground="Red"
+                      Grid.RowSpan="3"
+                      IsActive="True"
+                      />
+
 
 
         <SplitView Name="MediaListSplitView"

@@ -28,6 +28,13 @@
                             SuggestionChosen="SearchAutoSuggestBox_SuggestionChosen"
                             
                              />
+        <ProgressRing Name="EmployeeProgressRing"
+                      Width="50" 
+                      Height="50" 
+                      Foreground="Red"
+                      Grid.RowSpan="2"
+                      IsActive="True"
+                      />
 
         <RelativePanel Grid.Row="1">
 
@@ -48,15 +55,6 @@
                 </GridView.ItemTemplate>
             </GridView>
 
-            <ProgressRing Name="MyProgressRing"
-                      Width="50"
-                      Height="50"
-                      Foreground="Red"
-                      Grid.Row="1"
-                      RelativePanel.AlignTopWith="EmployeGridView"
-                      RelativePanel.AlignVerticalCenterWithPanel="True"
-                      RelativePanel.AlignHorizontalCenterWithPanel="True"                          
-                          />
 
         </RelativePanel>
 

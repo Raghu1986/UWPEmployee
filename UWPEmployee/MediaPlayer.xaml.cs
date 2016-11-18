@@ -43,27 +43,25 @@ namespace UWPEmployee
 
         private async void getAllCourse()
         {
-
+            MediaPlayerProgress.IsActive = true;
             await CourseManager.GetAllCourseAsnc(Courses);
 
         }
 
         private async void getAllMedia()
         {
-
+            MediaPlayerProgress.IsActive = true;
             await MediaManager.GetAllMediaAsnc(Medias);
+            MediaPlayerProgress.IsActive = false;
 
         }
 
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            //MyCourseProgressRing.IsActive = true;
-            //MyCourseProgressRing.Visibility = Visibility.Visible;
+            
             getAllCourse();
-            //getAllMedia();
-            //MyCourseProgressRing.Visibility = Visibility.Collapsed;
-            //MyCourseProgressRing.IsActive = false;
+            getAllMedia();
             MediaListSplitView.Visibility = Visibility.Collapsed;
             VideoButton.Visibility = Visibility.Collapsed;
             MyMediaPlayer.Visibility = Visibility.Collapsed;
@@ -73,7 +71,7 @@ namespace UWPEmployee
 
         private async void CourseGridView_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            MediaPlayerProgress.IsActive = true;
             MyMediaPlayer.Visibility = Visibility.Collapsed;
             var value = (Course)e.ClickedItem;
             CourseName = value.CourseType;
@@ -81,6 +79,7 @@ namespace UWPEmployee
             MediaListSplitView.Visibility = Visibility.Visible;
             VideoButton.Visibility = Visibility.Visible;
             MediaListSplitView.IsPaneOpen = true;
+            MediaPlayerProgress.IsActive = false;
 
         }
         private void MediaListView_ItemClick(object sender, ItemClickEventArgs e)

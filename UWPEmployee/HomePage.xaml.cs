@@ -41,18 +41,17 @@ namespace UWPEmployee
 
         protected  override void OnNavigatedTo(NavigationEventArgs e)
         {
-            MyProgressRing.IsActive = true;
-            MyProgressRing.Visibility = Visibility.Visible;
+
             getAll();
-            MyProgressRing.Visibility = Visibility.Collapsed;
-            MyProgressRing.IsActive = false;
+
 
         }
 
         private async void getAll()
         {
-            
+            EmployeeProgressRing.IsActive = true;
             await EmployeeManager.GetAllEmployeesAsnc(EmployeeCharacters);
+            EmployeeProgressRing.IsActive = false;
 
         }
 
@@ -73,11 +72,9 @@ namespace UWPEmployee
         private async void SearchAutoSuggestBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {
 
-            MyProgressRing.IsActive = true;
-            MyProgressRing.Visibility = Visibility.Visible;
+            EmployeeProgressRing.IsActive = true;
             await EmployeeManager.GetEmployeesByNameAsnc(EmployeeCharacters,sender.Text);
-            MyProgressRing.Visibility = Visibility.Collapsed;
-            MyProgressRing.IsActive = false;
+            EmployeeProgressRing.IsActive = false;
 
 
         }
@@ -85,11 +82,9 @@ namespace UWPEmployee
         private async void SearchAutoSuggestBox_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
         {
 
-            MyProgressRing.IsActive = true;
-            MyProgressRing.Visibility = Visibility.Visible;
+            EmployeeProgressRing.IsActive = true;
             await EmployeeManager.GetEmployeesByNameAsnc(EmployeeCharacters, sender.Text);
-            MyProgressRing.Visibility = Visibility.Collapsed;
-            MyProgressRing.IsActive = false;
+            EmployeeProgressRing.IsActive = false;
 
         }
 
