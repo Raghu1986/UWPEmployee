@@ -75,8 +75,7 @@ namespace UWPEmployee
             EmployeeProgressRing.IsActive = true;
             await EmployeeManager.GetEmployeesByNameAsnc(EmployeeCharacters,sender.Text);
             EmployeeProgressRing.IsActive = false;
-
-
+            
         }
 
         private async void SearchAutoSuggestBox_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
@@ -85,7 +84,7 @@ namespace UWPEmployee
             EmployeeProgressRing.IsActive = true;
             await EmployeeManager.GetEmployeesByNameAsnc(EmployeeCharacters, sender.Text);
             EmployeeProgressRing.IsActive = false;
-            //this is test
+            
 
         }
 
